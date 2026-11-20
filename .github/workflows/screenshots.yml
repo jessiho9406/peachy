@@ -43,7 +43,8 @@ jobs:
           cp -r shots /tmp/shots
           git checkout --orphan shots
           git rm -rfq .
-          cp /tmp/shots/* .
-          git add -A
+          git clean -fdxq
+          cp /tmp/shots/*.png .
+          git add *.png
           git commit -qm "Ảnh chụp màn hình"
           git push -f origin shots
