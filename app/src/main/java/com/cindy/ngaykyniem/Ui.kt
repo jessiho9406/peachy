@@ -6,6 +6,10 @@ import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.os.Build
+import android.view.ViewGroup
+import android.view.WindowInsets
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
@@ -14,6 +18,24 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.OvershootInterpolator
+
+/** Android 15+ vẽ tràn viền: đệm thêm khoảng của thanh trạng thái / thanh điều hướng / bàn phím. */
+fun Activity.fitSystemBars() {
+    if (Build.VERSION.SDK_INT < 35) return
+    val root = findViewById<ViewGroup>(android.R.id.content).getChildAt(0) ?: return
+    val l = root.paddingLeft
+    val t = root.paddingTop
+    val r = root.paddingRight
+    val b = root.paddingBottom
+    root.setOnApplyWindowInsetsListener { v, insets ->
+        val i = insets.getInsets(
+            WindowInsets.Type.systemBars() or WindowInsets.Type.displayCutout() or WindowInsets.Type.ime()
+        )
+        v.setPadding(l + i.left, t + i.top, r + i.right, b + i.bottom)
+        insets
+    }
+    root.requestApplyInsets()
+}
 
 fun Context.dp(v: Float): Float = v * resources.displayMetrics.density
 fun Context.dpi(v: Int): Int = (v * resources.displayMetrics.density).toInt()

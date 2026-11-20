@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="demo_names"><item>결혼기념일</item><item>우리 처음 만난 날</item><item>하은이 생일</item><item>할아버지 제사</item><item>제주도 여행</item></string-array>
+    <integer-array name="demo_repeat"><item>1</item><item>0</item><item>1</item><item>2</item><item>0</item></integer-array>
+</resources>

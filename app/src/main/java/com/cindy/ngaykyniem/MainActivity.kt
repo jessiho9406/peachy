@@ -21,6 +21,7 @@ class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        fitSystemBars()
         list = findViewById(R.id.list)
         empty = findViewById(R.id.empty)
 

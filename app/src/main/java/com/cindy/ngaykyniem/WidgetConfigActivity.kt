@@ -27,6 +27,7 @@ class WidgetConfigActivity : Activity() {
         }
 
         setContentView(R.layout.activity_widget_config)
+        fitSystemBars()
         list = findViewById(R.id.list)
 
         val add = findViewById<TextView>(R.id.add)

@@ -83,6 +83,10 @@ object Store {
         save(ctx, list)
     }
 
+    fun clear(ctx: Context) {
+        prefs(ctx).edit().remove(KEY).apply()
+    }
+
     fun delete(ctx: Context, id: String) {
         save(ctx, load(ctx).filter { it.id != id })
     }

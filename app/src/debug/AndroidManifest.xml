@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <!-- Chỉ có trong bản debug: nạp dữ liệu mẫu để chụp ảnh màn hình cho CH Play -->
+        <activity
+            android:name="com.cindy.ngaykyniem.DemoActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.cindy.ngaykyniem.ShowcaseActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+    </application>
+</manifest>

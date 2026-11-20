@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="demo_names"><item>結婚記念日</item><item>付き合った日</item><item>ひなの誕生日</item><item>初出勤の日</item><item>沖縄旅行</item></string-array>
+    <integer-array name="demo_repeat"><item>1</item><item>0</item><item>1</item><item>0</item><item>0</item></integer-array>
+</resources>

@@ -14,31 +14,47 @@ jobs:
         with:
           distribution: temurin
           java-version: "17"
+      - name: Khoá ký (nếu đã thêm vào Secrets)
+        env:
+          KS_B64: ${{ secrets.PEACHY_KEYSTORE_B64 }}
+          KS_PASS: ${{ secrets.PEACHY_KEYSTORE_PASSWORD }}
+        run: |
+          if [ -n "$KS_B64" ]; then
+            echo "$KS_B64" | base64 -d > "$RUNNER_TEMP/upload.jks"
+            echo "PEACHY_KEYSTORE_FILE=$RUNNER_TEMP/upload.jks" >> "$GITHUB_ENV"
+            echo "PEACHY_KEYSTORE_PASSWORD=$KS_PASS" >> "$GITHUB_ENV"
+            echo "Đã có khoá ký"
+          else
+            echo "Chưa có khoá ký: AAB sẽ chưa ký"
+          fi
       - name: Build
+        env:
+          VERSION_CODE: ${{ github.run_number }}
         run: |
           echo "sdk.dir=$ANDROID_HOME" > local.properties
           chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon --stacktrace
+          ./gradlew assembleDebug bundleRelease --no-daemon --stacktrace
           mkdir -p out
           cp app/build/outputs/apk/debug/app-debug.apk out/Peachy.apk
+          cp app/build/outputs/bundle/release/app-release.aab out/Peachy.aab
       - uses: actions/upload-artifact@v5
         with:
-          name: Peachy-apk
-          path: out/Peachy.apk
+          name: Peachy
+          path: out/*
       - name: Release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           TAG="build-${{ github.run_number }}"
-          gh release create "$TAG" out/Peachy.apk --title "Peachy (bản ${{ github.run_number }})" --notes "Tải Peachy.apk bên dưới rồi mở để cài." --latest
-      - name: Lưu APK vào nhánh apk
+          gh release create "$TAG" out/Peachy.apk out/Peachy.aab --title "Peachy (bản ${{ github.run_number }})" --notes "Peachy.apk: cài thử trên điện thoại. Peachy.aab: nộp lên CH Play." --latest
+      - name: Lưu file vào nhánh apk
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          cp out/Peachy.apk /tmp/Peachy.apk
+          cp out/* /tmp/
           git checkout --orphan apk
           git rm -rfq .
-          cp /tmp/Peachy.apk Peachy.apk
-          git add Peachy.apk
-          git commit -qm "APK bản ${{ github.run_number }}"
+          cp /tmp/Peachy.apk /tmp/Peachy.aab .
+          git add Peachy.apk Peachy.aab
+          git commit -qm "Bản ${{ github.run_number }}"
           git push -f origin apk

@@ -48,6 +48,7 @@ class EditActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit)
+        fitSystemBars()
 
         editing = Store.get(this, intent.getStringExtra(EXTRA_ID))
         editing?.let {
