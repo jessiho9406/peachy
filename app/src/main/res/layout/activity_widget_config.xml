@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
-            android:text="widget này đếm ngày nào?"
+            android:text="@string/config_title"
             android:textColor="@color/ink"
             android:textSize="22sp" />
 
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="18dp"
-            android:text="chạm một thẻ để chọn nha"
+            android:text="@string/config_sub"
             android:textColor="@color/ink_soft"
             android:textSize="13sp" />
 
@@ -41,7 +41,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
-            android:text="+  tạo ngày mới"
+            android:text="@string/config_add"
             android:textColor="@color/accent"
             android:textSize="15sp" />
     </LinearLayout>

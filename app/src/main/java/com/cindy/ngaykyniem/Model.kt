@@ -10,6 +10,7 @@ import org.json.JSONObject
 import java.text.NumberFormat
 import java.time.LocalDate
 import java.time.YearMonth
+import java.time.format.DateTimeFormatter
 import java.util.Locale
 import java.util.UUID
 
@@ -163,19 +164,26 @@ class Calc(e: Event, today: LocalDate) {
 }
 
 object Fmt {
-    private val nf: NumberFormat = NumberFormat.getIntegerInstance(Locale("vi", "VN"))
-    fun num(n: Int): String = nf.format(n)
-    fun date(d: LocalDate): String = "%02d/%02d/%d".format(d.dayOfMonth, d.monthValue, d.year)
-    fun dayMonth(d: LocalDate): String = "%02d/%02d".format(d.dayOfMonth, d.monthValue)
-    fun lunar(l: IntArray): String = "%02d/%02d ÂL".format(l[0], l[1]) + (if (l[3] == 1) " (nhuận)" else "")
-    private val WD = arrayOf("", "T2", "T3", "T4", "T5", "T6", "T7", "CN")
-    fun weekday(d: LocalDate): String = WD[d.dayOfWeek.value]
+    fun locale(ctx: Context): Locale = ctx.resources.configuration.locales[0]
+
+    fun num(ctx: Context, n: Int): String = NumberFormat.getIntegerInstance(locale(ctx)).format(n)
+
+    fun date(ctx: Context, d: LocalDate): String =
+        DateTimeFormatter.ofPattern(ctx.getString(R.string.date_pattern), locale(ctx)).format(d)
+
+    fun today(ctx: Context, d: LocalDate): String =
+        DateTimeFormatter.ofPattern(ctx.getString(R.string.today_pattern), locale(ctx)).format(d)
+
+    fun lunar(ctx: Context, l: IntArray): String =
+        ctx.getString(R.string.lunar_fmt, l[0], l[1]) + (if (l[3] == 1) ctx.getString(R.string.lunar_leap) else "")
+
+    /** Chỉ hiện âm lịch ở dòng "hôm nay" với ngôn ngữ có dùng âm lịch. */
+    fun usesLunar(ctx: Context): Boolean = locale(ctx).language in setOf("vi", "zh", "ko")
 }
 
 /** Nhân vật + bảng màu widget. */
 object Look {
     val MASCOTS = intArrayOf(R.drawable.mascot_0, R.drawable.mascot_1, R.drawable.mascot_2, R.drawable.mascot_3, R.drawable.mascot_4)
-    val MASCOT_NAMES = arrayOf("Cười", "Vẫy tay", "Nháy mắt", "Ôm lá", "Mắt tim")
     val BG = intArrayOf(R.drawable.bg_w0, R.drawable.bg_w1, R.drawable.bg_w2, R.drawable.bg_w3, R.drawable.bg_w4, R.drawable.bg_w5)
     val SWATCH = arrayOf(
         intArrayOf(0xFF4A2468.toInt(), 0xFF1E0E2C.toInt()),
@@ -185,7 +193,6 @@ object Look {
         intArrayOf(0xFF34343A.toInt(), 0xFF121215.toInt()),
         intArrayOf(0xFF0A6B65.toInt(), 0xFF00504B.toInt())
     )
-    val THEME_NAMES = arrayOf("Mận đêm", "Xanh coban", "Kem sữa", "Chanh muối", "Đen nhám", "Xanh rêu")
     /** màu tên + chữ "ngày" */
     val INK = intArrayOf(0xFFFFFFFF.toInt(), 0xFFFFFFFF.toInt(), 0xFF24122E.toInt(), 0xFF1C2A0E.toInt(), 0xFFFFFFFF.toInt(), 0xFFFFFFFF.toInt())
     /** màu con số lớn */
@@ -193,12 +200,11 @@ object Look {
     val SUB = intArrayOf(0xFFCDB0E0.toInt(), 0xFFC9D8FF.toInt(), 0xFF8C5B6B.toInt(), 0xFF46591B.toInt(), 0xFFA9A9B3.toInt(), 0xFFBFE3DF.toInt())
 }
 
-/** Nội dung hiển thị của widget — dùng chung cho widget thật và bản xem trước trong app. */
+/** Nội dung widget — dùng chung cho widget thật và bản xem trước trong app. */
 class WidgetContent(
     val name: String,
     val num: String,
     val unit: String,
-    val sub: String,
     val date: String,
     val theme: Int,
     val mascot: Int
@@ -207,61 +213,41 @@ class WidgetContent(
         rv.setInt(R.id.w_root, "setBackgroundResource", Look.BG[theme])
         rv.setImageViewResource(R.id.w_mascot, Look.MASCOTS[mascot])
         rv.setTextViewText(R.id.w_name, name)
-        rv.setTextViewText(R.id.w_num, num)
-        rv.setTextViewText(R.id.w_unit, unit)
-        rv.setTextColor(R.id.w_num, Look.NUM[theme])
-        rv.setTextColor(R.id.w_unit, Look.INK[theme])
         rv.setTextColor(R.id.w_name, Look.INK[theme])
-        rv.setTextViewText(R.id.w_sub, sub)
-        rv.setTextColor(R.id.w_sub, Look.SUB[theme])
+        rv.setTextViewText(R.id.w_num, num)
+        rv.setTextColor(R.id.w_num, Look.NUM[theme])
+        rv.setTextViewText(R.id.w_unit, unit)
+        rv.setTextColor(R.id.w_unit, Look.INK[theme])
         rv.setTextViewText(R.id.w_date, date)
         rv.setTextColor(R.id.w_date, Look.SUB[theme])
     }
 
-    /** Áp vào layout widget_wide đã inflate thường (xem trước trong app). */
+    /** Áp vào layout widget đã inflate thường (xem trước trong app). */
     fun apply(v: View) {
         v.findViewById<View>(R.id.w_root).setBackgroundResource(Look.BG[theme])
-        v.findViewById<ImageView>(R.id.w_mascot).setImageResource(Look.MASCOTS[mascot])
+        v.findViewById<ImageView>(R.id.w_mascot)?.setImageResource(Look.MASCOTS[mascot])
         fun t(id: Int, s: String, c: Int) {
             v.findViewById<TextView>(id)?.let { it.text = s; it.setTextColor(c) }
         }
         t(R.id.w_name, name, Look.INK[theme])
         t(R.id.w_num, num, Look.NUM[theme])
         t(R.id.w_unit, unit, Look.INK[theme])
-        t(R.id.w_sub, sub, Look.SUB[theme])
         t(R.id.w_date, date, Look.SUB[theme])
     }
 
     companion object {
-        fun of(e: Event, today: LocalDate = LocalDate.now()): WidgetContent {
+        fun of(ctx: Context, e: Event, today: LocalDate = LocalDate.now()): WidgetContent {
             val c = Calc(e, today)
-            val num: String
-            val unit: String
-            val sub: String
-            if (c.future) {
-                num = Fmt.num(c.count)
-                unit = "ngày nữa"
-                sub = "${Fmt.weekday(e.date)}, ${Fmt.date(e.date)}"
-            } else {
-                num = Fmt.num(c.count)
-                unit = "ngày"
-                val nIn = c.nextIn
-                val nAt = c.nextAt
-                sub = if (e.repeat != 0 && nIn != null && nAt != null) {
-                    if (nIn == 0) "Hôm nay kỷ niệm lần ${c.nextNo} 🎉"
-                    else "Lần ${c.nextNo} · ${Fmt.dayMonth(nAt)} · còn $nIn ngày"
-                } else {
-                    val mIn = c.milestoneIn ?: 0
-                    if (mIn == 0) "Hôm nay tròn ${Fmt.num(c.milestone ?: 0)} ngày 🎉"
-                    else "Tròn ${Fmt.num(c.milestone ?: 0)} ngày · còn $mIn ngày"
-                }
-            }
+            val res = ctx.resources
+            val unit = res.getQuantityString(if (c.future) R.plurals.unit_left else R.plurals.unit_days, c.count)
+            val d = Fmt.date(ctx, e.date)
+            var date = if (c.future) d else ctx.getString(R.string.since, d)
             val l = c.lunar
-            val date = if (e.repeat == 2 && l != null) "${Fmt.date(e.date)} · ${Fmt.lunar(l)}" else "Từ ${Fmt.date(e.date)}"
-            return WidgetContent(e.name, num, unit, sub, if (c.future) "" else date, e.theme, e.mascot)
+            if (e.repeat == 2 && l != null) date += " · " + Fmt.lunar(ctx, l)
+            return WidgetContent(e.name, Fmt.num(ctx, c.count), unit, date, e.theme, e.mascot)
         }
 
-        fun empty(): WidgetContent =
-            WidgetContent("chạm để thêm ngày", "+", "", "Peachy · đếm ngày iu", "", 0, 0)
+        fun empty(ctx: Context): WidgetContent =
+            WidgetContent(ctx.getString(R.string.widget_empty), "+", "", ctx.getString(R.string.app_name), 0, 0)
     }
 }

@@ -26,7 +26,7 @@
                     android:id="@+id/header_mascot"
                     android:layout_width="76dp"
                     android:layout_height="76dp"
-                    android:contentDescription="Linh vật"
+                    android:contentDescription="@null"
                     android:src="@drawable/mascot_0" />
 
                 <LinearLayout
@@ -40,7 +40,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
-                        android:text="Peachy"
+                        android:text="@string/app_name"
                         android:textColor="@color/ink"
                         android:textSize="30sp" />
 
@@ -54,7 +54,7 @@
                         android:paddingTop="2dp"
                         android:paddingEnd="8dp"
                         android:paddingBottom="2dp"
-                        android:text="đếm ngày iu ♡"
+                        android:text="@string/tagline"
                         android:textColor="@color/ink"
                         android:textSize="12sp" />
 
@@ -108,7 +108,7 @@
                     android:layout_marginTop="12dp"
                     android:gravity="center"
                     android:lineSpacingMultiplier="1.3"
-                    android:text="Chưa có ngày nào hết trơn 🍑\nBấm “+ thêm ngày” để bắt đầu nha"
+                    android:text="@string/empty"
                     android:textColor="@color/ink_soft"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -126,7 +126,7 @@
         android:gravity="center"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
-        android:text="+  thêm ngày"
+        android:text="@string/fab_add"
         android:textColor="#FFFFFF"
         android:textSize="16sp" />
 </FrameLayout>

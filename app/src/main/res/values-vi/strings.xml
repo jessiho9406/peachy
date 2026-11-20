@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_label">Peachy · đếm ngày</string>
+    <string name="widget_desc">Đếm ngày iu ngay trên màn hình chính</string>
+    <string name="tagline">đếm ngày iu ♡</string>
+    <string name="tip">📌 Ghim widget: giữ lâu chỗ trống trên màn hình chính → Widget → “Peachy” rồi kéo ra. Hoặc mở một ngày và bấm “lưu &amp; ghim ra màn hình”.</string>
+    <string name="empty">Chưa có ngày nào hết trơn 🍑\nBấm “+ thêm ngày” để bắt đầu nha</string>
+    <string name="fab_add">+  thêm ngày</string>
+    <string name="title_add">thêm ngày</string>
+    <string name="title_edit">sửa ngày</string>
+    <string name="label_preview">widget sẽ trông như vầy</string>
+    <string name="label_name">tên ngày</string>
+    <string name="hint_name">VD: Ngày cưới, Sinh nhật con…</string>
+    <string name="label_date">ngày nào nè (dương lịch)</string>
+    <string name="lunar_hint">Âm lịch: %1$s năm %2$d</string>
+    <string name="label_repeat">lặp lại hằng năm</string>
+    <string name="repeat_none">không</string>
+    <string name="repeat_solar">dương lịch</string>
+    <string name="repeat_lunar">âm lịch</string>
+    <string name="repeat_help">Âm lịch dùng cho giỗ, sinh nhật âm… tự đổi sang ngày dương mỗi năm.</string>
+    <string name="first_day">tính ngày bắt đầu là ngày 1</string>
+    <string name="label_mascot">biểu cảm của đào</string>
+    <string name="label_theme">màu widget</string>
+    <string name="save">lưu nè</string>
+    <string name="pin">lưu &amp; ghim ra màn hình 📌</string>
+    <string name="delete">xoá ngày này</string>
+    <string name="delete_confirm">bấm lần nữa là xoá thiệt đó</string>
+    <string name="toast_saved">lưu rồi nè 🍑</string>
+    <string name="toast_deleted">xoá rồi</string>
+    <string name="err_name">đặt tên cho ngày này đã nha</string>
+    <string name="pin_unsupported">Máy chưa cho ghim tự động. Giữ lâu màn hình chính → Widget → Peachy nha.</string>
+    <string name="config_title">widget này đếm ngày nào?</string>
+    <string name="config_sub">chạm một thẻ để chọn nha</string>
+    <string name="config_add">+  tạo ngày mới</string>
+    <string name="since">từ %s</string>
+    <string name="widget_empty">chạm để thêm ngày</string>
+    <string name="default_name">ngày iu</string>
+    <string name="date_pattern">dd/MM/yyyy</string>
+    <string name="today_pattern">EEE, dd/MM/yyyy</string>
+    <string name="lunar_fmt">%1$02d/%2$02d ÂL</string>
+    <string name="lunar_leap"> (nhuận)</string>
+    <string name="back">Quay lại</string>
+    <plurals name="unit_days">
+        <item quantity="other">ngày</item>
+    </plurals>
+    <plurals name="unit_left">
+        <item quantity="other">ngày nữa</item>
+    </plurals>
+    <string-array name="mascot_names"><item>Cười</item><item>Vẫy tay</item><item>Nháy mắt</item><item>Ôm lá</item><item>Mắt tim</item></string-array>
+    <string-array name="theme_names"><item>Mận đêm</item><item>Xanh coban</item><item>Kem sữa</item><item>Chanh muối</item><item>Đen nhám</item><item>Xanh rêu</item></string-array>
+</resources>

@@ -71,9 +71,9 @@ class WidgetProvider : AppWidgetProvider() {
 
             val opts = mgr.getAppWidgetOptions(id)
             val minW = opts.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH, 0)
-            val wide = minW == 0 || minW >= 200
+            val wide = minW == 0 || minW >= 180
             val rv = RemoteViews(ctx.packageName, if (wide) R.layout.widget_wide else R.layout.widget_small)
-            val content = if (e != null) WidgetContent.of(e, LocalDate.now()) else WidgetContent.empty()
+            val content = if (e != null) WidgetContent.of(ctx, e, LocalDate.now()) else WidgetContent.empty(ctx)
             content.apply(rv)
 
             val open = if (e != null) {

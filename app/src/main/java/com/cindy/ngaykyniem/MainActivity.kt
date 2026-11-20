@@ -32,8 +32,7 @@ class MainActivity : Activity() {
 
         val tip = findViewById<TextView>(R.id.tip)
         tip.background = chunky(this, 0xFFFFFFFF.toInt(), 20f)
-        tip.text = "📌 Ghim widget: giữ lâu chỗ trống trên màn hình chính → Widget → “Peachy” rồi kéo ra. " +
-            "Hoặc mở một ngày và bấm “lưu & ghim ra màn hình”."
+        tip.setText(R.string.tip)
 
         findViewById<TextView>(R.id.tagline).background = rounded(this, 10f, getColor(R.color.lime))
 
@@ -66,9 +65,12 @@ class MainActivity : Activity() {
 
     private fun render() {
         val today = LocalDate.now()
-        val l = Lunar.solarToLunar(today.dayOfMonth, today.monthValue, today.year)
-        findViewById<TextView>(R.id.today).text =
-            "${Fmt.weekday(today)}, ${Fmt.date(today)} · ${Fmt.lunar(l)}"
+        var todayText = Fmt.today(this, today)
+        if (Fmt.usesLunar(this)) {
+            val l = Lunar.solarToLunar(today.dayOfMonth, today.monthValue, today.year)
+            todayText += " · " + Fmt.lunar(this, l)
+        }
+        findViewById<TextView>(R.id.today).text = todayText
 
         val events = Store.load(this).sortedBy { Calc(it, today).sortKey }
         list.removeAllViews()
@@ -77,9 +79,9 @@ class MainActivity : Activity() {
         val inflater = LayoutInflater.from(this)
         events.forEachIndexed { i, e ->
             val card = inflater.inflate(R.layout.widget_wide, list, false)
-            WidgetContent.of(e, today).apply(card)
-            val lp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dpi(140))
-            lp.bottomMargin = dpi(14)
+            WidgetContent.of(this, e, today).apply(card)
+            val lp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dpi(84))
+            lp.bottomMargin = dpi(12)
             card.layoutParams = lp
             card.elevation = dp(5f)
             card.isClickable = true

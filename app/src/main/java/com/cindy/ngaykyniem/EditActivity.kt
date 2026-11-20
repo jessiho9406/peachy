@@ -55,7 +55,7 @@ class EditActivity : Activity() {
         }
 
         findViewById<View>(R.id.back).setOnClickListener { finish() }
-        findViewById<TextView>(R.id.title).text = if (editing == null) "thêm ngày" else "sửa ngày"
+        findViewById<TextView>(R.id.title).setText(if (editing == null) R.string.title_add else R.string.title_edit)
 
         // Xem trước widget
         val holder = findViewById<FrameLayout>(R.id.preview_holder)
@@ -104,7 +104,7 @@ class EditActivity : Activity() {
             if (!WidgetProvider.requestPin(this, e.id)) {
                 Toast.makeText(
                     this,
-                    "Máy chưa cho ghim tự động. Giữ lâu màn hình chính → Widget → Peachy nha.",
+                    R.string.pin_unsupported,
                     Toast.LENGTH_LONG
                 ).show()
             }
@@ -116,13 +116,13 @@ class EditActivity : Activity() {
             del.setOnClickListener {
                 if (!armDelete) {
                     armDelete = true
-                    del.text = "bấm lần nữa là xoá thiệt đó"
+                    del.setText(R.string.delete_confirm)
                     del.background = rounded(this, 26f, 0x14C0485A, 0, 0f)
                     Anim.bump(del)
                 } else {
                     Store.delete(this, editing!!.id)
                     WidgetProvider.updateAll(this)
-                    Toast.makeText(this, "xoá rồi", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, R.string.toast_deleted, Toast.LENGTH_SHORT).show()
                     finish()
                 }
             }
@@ -133,9 +133,9 @@ class EditActivity : Activity() {
 
     private fun buildRepeat() {
         val group = findViewById<LinearLayout>(R.id.repeat_group)
-        listOf("không", "dương lịch", "âm lịch").forEachIndexed { i, label ->
+        listOf(R.string.repeat_none, R.string.repeat_solar, R.string.repeat_lunar).forEachIndexed { i, label ->
             val t = TextView(this)
-            t.text = label
+            t.setText(label)
             t.gravity = Gravity.CENTER
             t.textSize = 14f
             val lp = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1f)
@@ -153,10 +153,11 @@ class EditActivity : Activity() {
 
     private fun buildMascots() {
         val group = findViewById<LinearLayout>(R.id.mascot_group)
+        val names = resources.getStringArray(R.array.mascot_names)
         Look.MASCOTS.forEachIndexed { i, res ->
             val iv = ImageView(this)
             iv.setImageResource(res)
-            iv.contentDescription = Look.MASCOT_NAMES[i]
+            iv.contentDescription = names.getOrNull(i)
             val pad = dpi(6)
             iv.setPadding(pad, pad, pad, pad)
             val lp = LinearLayout.LayoutParams(0, dpi(72), 1f)
@@ -175,9 +176,10 @@ class EditActivity : Activity() {
 
     private fun buildThemes() {
         val group = findViewById<LinearLayout>(R.id.theme_group)
+        val names = resources.getStringArray(R.array.theme_names)
         Look.SWATCH.forEachIndexed { i, c ->
             val v = View(this)
-            v.contentDescription = Look.THEME_NAMES[i]
+            v.contentDescription = names.getOrNull(i)
             val lp = LinearLayout.LayoutParams(0, dpi(44), 1f)
             if (i > 0) lp.marginStart = dpi(10)
             v.layoutParams = lp
@@ -193,9 +195,9 @@ class EditActivity : Activity() {
     }
 
     private fun refreshAll() {
-        dateBtn.text = "📅  ${Fmt.weekday(date)}, ${Fmt.date(date)}"
+        dateBtn.text = "📅  " + Fmt.today(this, date)
         val l = Lunar.solarToLunar(date.dayOfMonth, date.monthValue, date.year)
-        lunarHint.text = "Âm lịch: ${Fmt.lunar(l)} năm ${l[2]}"
+        lunarHint.text = getString(R.string.lunar_hint, Fmt.lunar(this, l), l[2])
 
         repeatViews.forEachIndexed { i, t ->
             val on = i == repeat
@@ -219,7 +221,7 @@ class EditActivity : Activity() {
 
     private fun currentEvent(): Event = Event(
         id = editing?.id ?: "preview",
-        name = nameInput.text.toString().trim().ifEmpty { "ngày iu" },
+        name = nameInput.text.toString().trim().ifEmpty { getString(R.string.default_name) },
         date = date,
         repeat = repeat,
         first = firstSwitch.isChecked,
@@ -228,14 +230,14 @@ class EditActivity : Activity() {
     )
 
     private fun refreshPreview() {
-        WidgetContent.of(currentEvent()).apply(preview)
+        WidgetContent.of(this, currentEvent()).apply(preview)
     }
 
     /** Lưu và trả về sự kiện; null nếu thiếu tên. */
     private fun doSave(): Event? {
         val name = nameInput.text.toString().trim()
         if (name.isEmpty()) {
-            nameInput.error = "đặt tên cho ngày này đã nha"
+            nameInput.error = getString(R.string.err_name)
             nameInput.requestFocus()
             return null
         }
@@ -244,7 +246,7 @@ class EditActivity : Activity() {
         editing = e
         WidgetProvider.updateAll(this)
         setResult(RESULT_OK, Intent().putExtra(EXTRA_ID, e.id))
-        Toast.makeText(this, "lưu rồi nè 🍑", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, R.string.toast_saved, Toast.LENGTH_SHORT).show()
         return e
     }
 }

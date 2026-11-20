@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_label">Peachy · นับวัน</string>
+    <string name="widget_desc">นับวันสำคัญบนหน้าจอหลัก</string>
+    <string name="tagline">นับวันของเรา ♡</string>
+    <string name="tip">📌 เพิ่มวิดเจ็ต: กดค้างที่ว่างบนหน้าจอหลัก → วิดเจ็ต → ลาก “Peachy” ออกมา หรือเปิดวันสำคัญแล้วแตะ “บันทึกและปักหมุดที่หน้าจอหลัก”</string>
+    <string name="empty">ยังไม่มีวันสำคัญเลย 🍑\nแตะ “+ เพิ่มวัน” เพื่อเริ่ม</string>
+    <string name="fab_add">+  เพิ่มวัน</string>
+    <string name="title_add">เพิ่มวัน</string>
+    <string name="title_edit">แก้ไขวัน</string>
+    <string name="label_preview">หน้าตาวิดเจ็ต</string>
+    <string name="label_name">ชื่อ</string>
+    <string name="hint_name">เช่น วันแต่งงาน วันเกิดลูก…</string>
+    <string name="label_date">วันที่ (ปฏิทินสากล)</string>
+    <string name="lunar_hint">จันทรคติ: %1$s ปี %2$d</string>
+    <string name="label_repeat">ทำซ้ำทุกปี</string>
+    <string name="repeat_none">ไม่</string>
+    <string name="repeat_solar">สากล</string>
+    <string name="repeat_lunar">จันทรคติ</string>
+    <string name="repeat_help">ใช้จันทรคติสำหรับวันเกิดตามจันทรคติ วันทำบุญ… แอปจะแปลงเป็นวันที่สากลให้ทุกปี</string>
+    <string name="first_day">นับวันเริ่มต้นเป็นวันที่ 1</string>
+    <string name="label_mascot">อารมณ์ของพีช</string>
+    <string name="label_theme">สีวิดเจ็ต</string>
+    <string name="save">บันทึก</string>
+    <string name="pin">บันทึกและปักหมุดที่หน้าจอหลัก 📌</string>
+    <string name="delete">ลบวันนี้</string>
+    <string name="delete_confirm">แตะอีกครั้งเพื่อลบ</string>
+    <string name="toast_saved">บันทึกแล้ว 🍑</string>
+    <string name="toast_deleted">ลบแล้ว</string>
+    <string name="err_name">ตั้งชื่อก่อนนะ</string>
+    <string name="pin_unsupported">ปักหมุดอัตโนมัติไม่ได้ กดค้างหน้าจอหลัก → วิดเจ็ต → Peachy</string>
+    <string name="config_title">วิดเจ็ตนี้จะนับวันไหน?</string>
+    <string name="config_sub">แตะการ์ดเพื่อเลือก</string>
+    <string name="config_add">+  วันใหม่</string>
+    <string name="since">ตั้งแต่ %s</string>
+    <string name="widget_empty">แตะเพื่อเพิ่มวัน</string>
+    <string name="default_name">วันของเรา</string>
+    <string name="date_pattern">d MMM yyyy</string>
+    <string name="today_pattern">EEE d MMM yyyy</string>
+    <string name="lunar_fmt">จันทรคติ %1$d/%2$d</string>
+    <string name="lunar_leap"> (อธิกมาส)</string>
+    <string name="back">กลับ</string>
+    <plurals name="unit_days">
+        <item quantity="other">วัน</item>
+    </plurals>
+    <plurals name="unit_left">
+        <item quantity="other">วันที่เหลือ</item>
+    </plurals>
+    <string-array name="mascot_names"><item>ยิ้ม</item><item>โบกมือ</item><item>ขยิบตา</item><item>กอดใบไม้</item><item>ตาหัวใจ</item></string-array>
+    <string-array name="theme_names"><item>พลัมยามค่ำ</item><item>โคบอลต์</item><item>ครีมนม</item><item>มะนาว</item><item>ดำด้าน</item><item>มอส</item></string-array>
+</resources>

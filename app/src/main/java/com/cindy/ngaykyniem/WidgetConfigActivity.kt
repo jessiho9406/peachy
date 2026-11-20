@@ -64,9 +64,9 @@ class WidgetConfigActivity : Activity() {
         val inflater = LayoutInflater.from(this)
         Store.load(this).forEachIndexed { i, e ->
             val card = inflater.inflate(R.layout.widget_wide, list, false)
-            WidgetContent.of(e, today).apply(card)
-            val lp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dpi(140))
-            lp.bottomMargin = dpi(14)
+            WidgetContent.of(this, e, today).apply(card)
+            val lp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dpi(84))
+            lp.bottomMargin = dpi(12)
             card.layoutParams = lp
             card.elevation = dp(if (e.id == current) 10f else 4f)
             card.isClickable = true

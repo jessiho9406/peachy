@@ -6,7 +6,9 @@ import kotlin.math.sin
 
 /** Đổi dương lịch <-> âm lịch Việt Nam (thuật toán Hồ Ngọc Đức, múi giờ +7). */
 object Lunar {
-    private const val TZ = 7.0
+    /** Múi giờ chuẩn của máy (VN +7, Đài Loan +8, Hàn +9) — lịch âm mỗi nước tính theo giờ địa phương. */
+    private val TZ: Double
+        get() = java.util.TimeZone.getDefault().rawOffset / 3_600_000.0
 
     private fun intOf(d: Double): Int = floor(d).toInt()
 
