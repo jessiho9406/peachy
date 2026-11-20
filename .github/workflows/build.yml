@@ -1,7 +1,10 @@
 name: Build APK
 on:
   push:
+    branches: [main]
   workflow_dispatch:
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,7 +19,26 @@ jobs:
           echo "sdk.dir=$ANDROID_HOME" > local.properties
           chmod +x gradlew
           ./gradlew assembleDebug --no-daemon --stacktrace
+          mkdir -p out
+          cp app/build/outputs/apk/debug/app-debug.apk out/Peachy.apk
       - uses: actions/upload-artifact@v5
         with:
           name: Peachy-apk
-          path: app/build/outputs/apk/debug/*.apk
+          path: out/Peachy.apk
+      - name: Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="build-${{ github.run_number }}"
+          gh release create "$TAG" out/Peachy.apk --title "Peachy (bản ${{ github.run_number }})" --notes "Tải Peachy.apk bên dưới rồi mở để cài." --latest
+      - name: Lưu APK vào nhánh apk
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          cp out/Peachy.apk /tmp/Peachy.apk
+          git checkout --orphan apk
+          git rm -rfq .
+          cp /tmp/Peachy.apk Peachy.apk
+          git add Peachy.apk
+          git commit -qm "APK bản ${{ github.run_number }}"
+          git push -f origin apk
