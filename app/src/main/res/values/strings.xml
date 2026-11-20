@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Peachy</string>
+    <string name="widget_label">Peachy · đếm ngày</string>
+    <string name="widget_desc">Đếm ngày iu ngay trên màn hình chính</string>
+</resources>
