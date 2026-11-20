@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="demo_names"><item>Wedding day</item><item>Since we met</item><item>Mia’s birthday</item><item>First job</item><item>Trip to Bali</item></string-array>
+    <integer-array name="demo_repeat"><item>1</item><item>0</item><item>1</item><item>0</item><item>0</item></integer-array>
+    <string-array name="mascot_names"><item>Smile</item><item>Wave</item><item>Wink</item><item>Leaf hug</item><item>Heart eyes</item></string-array>
+    <string-array name="theme_names"><item>Plum night</item><item>Cobalt</item><item>Milk cream</item><item>Lime</item><item>Matte black</item><item>Moss</item></string-array>
+    <color name="accent">#24122E</color>
+    <color name="cream">#FFF1E6</color>
+    <color name="danger">#E0244F</color>
+    <color name="hot">#FF3D6E</color>
+    <color name="icon_bg">#3A1C52</color>
+    <color name="ink">#24122E</color>
+    <color name="ink_soft">#7B5E6E</color>
+    <color name="lime">#DFFF5E</color>
+    <color name="line">#24122E</color>
+    <plurals name="unit_days">
+        <item quantity="one">day</item>
+        <item quantity="other">days</item>
+    </plurals>
+    <plurals name="unit_left">
+        <item quantity="one">day to go</item>
+        <item quantity="other">days to go</item>
+    </plurals>
+    <string name="app_name">Peachy</string>
+    <string name="back">Back</string>
+    <string name="config_add">+  new day</string>
+    <string name="config_sub">tap a card to pick it</string>
+    <string name="config_title">which day should this widget count?</string>
+    <string name="date_pattern">MMM d, yyyy</string>
+    <string name="default_name">our day</string>
+    <string name="delete">delete this day</string>
+    <string name="delete_confirm">tap again to really delete</string>
+    <string name="empty">No days yet 🍑\nTap “+ add day” to start</string>
+    <string name="err_name">give this day a name first</string>
+    <string name="fab_add">+  add day</string>
+    <string name="first_day">count the start day as day 1</string>
+    <string name="hint_name">e.g. Wedding day, Baby’s birthday…</string>
+    <string name="label_date">the date</string>
+    <string name="label_mascot">peach mood</string>
+    <string name="label_name">name</string>
+    <string name="label_preview">your widget will look like this</string>
+    <string name="label_repeat">repeat every year</string>
+    <string name="label_theme">widget color</string>
+    <string name="lunar_fmt">lunar %2$d/%1$d</string>
+    <string name="lunar_hint">Lunar: %1$s, year %2$d</string>
+    <string name="lunar_leap"> (leap)</string>
+    <string name="pin">save &amp; pin to home screen 📌</string>
+    <string name="pin_unsupported">Your launcher can’t pin widgets automatically. Long-press the home screen → Widgets → Peachy.</string>
+    <string name="repeat_help">Use lunar for lunar birthdays, memorial days… the solar date updates itself every year.</string>
+    <string name="repeat_lunar">lunar</string>
+    <string name="repeat_none">no</string>
+    <string name="repeat_solar">solar</string>
+    <string name="save">save</string>
+    <string name="since">since %s</string>
+    <string name="tagline">count the days ♡</string>
+    <string name="tip">📌 Add a widget: long-press an empty spot on your home screen → Widgets → “Peachy”, then drag it out. Or open a day and tap “save &amp; pin to home screen”.</string>
+    <string name="title_add">add a day</string>
+    <string name="title_edit">edit day</string>
+    <string name="toast_deleted">deleted</string>
+    <string name="toast_saved">saved 🍑</string>
+    <string name="today_pattern">EEE, MMM d, yyyy</string>
+    <string name="widget_desc">Count your special days on the home screen</string>
+    <string name="widget_empty">tap to add a day</string>
+    <string name="widget_label">Peachy · day counter</string>
+    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/cream</item>
+        <item name="android:statusBarColor">@color/cream</item>
+        <item name="android:navigationBarColor">@color/cream</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:colorPrimary">@color/accent</item>
+        <item name="android:textColorPrimary">@color/ink</item>
+    </style>
+    <style name="Label">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+</resources>

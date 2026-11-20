@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="demo_names"><item>결혼기념일</item><item>우리 처음 만난 날</item><item>하은이 생일</item><item>할아버지 제사</item><item>제주도 여행</item></string-array>
+    <integer-array name="demo_repeat"><item>1</item><item>0</item><item>1</item><item>2</item><item>0</item></integer-array>
+    <string-array name="mascot_names"><item>웃음</item><item>손 흔들기</item><item>윙크</item><item>잎사귀 포옹</item><item>하트 눈</item></string-array>
+    <string-array name="theme_names"><item>자두 밤</item><item>코발트</item><item>우유 크림</item><item>라임</item><item>무광 블랙</item><item>모스</item></string-array>
+    <plurals name="unit_days">
+        <item quantity="other">일</item>
+    </plurals>
+    <plurals name="unit_left">
+        <item quantity="other">일 남음</item>
+    </plurals>
+    <string name="back">뒤로</string>
+    <string name="config_add">+  새 날짜</string>
+    <string name="config_sub">카드를 눌러 선택하세요</string>
+    <string name="config_title">이 위젯은 어떤 날을 셀까요?</string>
+    <string name="date_pattern">yyyy. M. d.</string>
+    <string name="default_name">우리의 날</string>
+    <string name="delete">이 날짜 삭제</string>
+    <string name="delete_confirm">한 번 더 누르면 삭제돼요</string>
+    <string name="empty">아직 등록된 날이 없어요 🍑\n“+ 날짜 추가”를 눌러 시작해요</string>
+    <string name="err_name">이름을 먼저 정해 주세요</string>
+    <string name="fab_add">+  날짜 추가</string>
+    <string name="first_day">시작일을 1일로 세기</string>
+    <string name="hint_name">예: 결혼기념일, 아이 생일…</string>
+    <string name="label_date">날짜 (양력)</string>
+    <string name="label_mascot">복숭아 표정</string>
+    <string name="label_name">이름</string>
+    <string name="label_preview">위젯 미리보기</string>
+    <string name="label_repeat">매년 반복</string>
+    <string name="label_theme">위젯 색상</string>
+    <string name="lunar_fmt">음력 %2$d.%1$d</string>
+    <string name="lunar_hint">음력: %1$s, %2$d년</string>
+    <string name="lunar_leap"> (윤달)</string>
+    <string name="pin">저장 &amp; 홈 화면에 고정 📌</string>
+    <string name="pin_unsupported">자동 고정이 지원되지 않아요. 홈 화면을 길게 누르기 → 위젯 → Peachy.</string>
+    <string name="repeat_help">음력은 음력 생일, 제사 등에 쓰세요. 매년 양력 날짜로 자동 변환돼요.</string>
+    <string name="repeat_lunar">음력</string>
+    <string name="repeat_none">안 함</string>
+    <string name="repeat_solar">양력</string>
+    <string name="save">저장</string>
+    <string name="since">%s부터</string>
+    <string name="tagline">우리 날 세기 ♡</string>
+    <string name="tip">📌 위젯 추가: 홈 화면 빈 곳을 길게 누르기 → 위젯 → “Peachy”를 끌어다 놓으세요. 또는 날짜를 열고 “저장 &amp; 홈 화면에 고정”을 누르세요.</string>
+    <string name="title_add">날짜 추가</string>
+    <string name="title_edit">날짜 수정</string>
+    <string name="toast_deleted">삭제했어요</string>
+    <string name="toast_saved">저장했어요 🍑</string>
+    <string name="today_pattern">yyyy. M. d. (EEE)</string>
+    <string name="widget_desc">홈 화면에서 기념일 세기</string>
+    <string name="widget_empty">눌러서 날짜 추가</string>
+    <string name="widget_label">Peachy · 디데이</string>
+</resources>

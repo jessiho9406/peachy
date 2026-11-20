@@ -1,0 +1,82 @@
+[
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/drawable-nodpi_mascot_3.png.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/drawable-nodpi/mascot_3.png"
+    },
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/drawable_bg_w4.xml.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/drawable/bg_w4.xml"
+    },
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/drawable-nodpi_mascot_4.png.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/drawable-nodpi/mascot_4.png"
+    },
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/drawable-nodpi_mascot_2.png.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/drawable-nodpi/mascot_2.png"
+    },
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/xml_locales_config.xml.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/xml/locales_config.xml"
+    },
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/drawable_bg_w3.xml.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/drawable/bg_w3.xml"
+    },
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/drawable-nodpi_mascot_1.png.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/drawable-nodpi/mascot_1.png"
+    },
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/layout_widget_wide.xml.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/layout/widget_wide.xml"
+    },
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/drawable_bg_w2.xml.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/drawable/bg_w2.xml"
+    },
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/drawable_bg_w1.xml.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/drawable/bg_w1.xml"
+    },
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/layout_activity_edit.xml.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/layout/activity_edit.xml"
+    },
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/layout_activity_widget_config.xml.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/layout/activity_widget_config.xml"
+    },
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/drawable-nodpi_mascot_0.png.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/drawable-nodpi/mascot_0.png"
+    },
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/xml_widget_info.xml.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/xml/widget_info.xml"
+    },
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/drawable-nodpi_ic_launcher_fg.png.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/drawable-nodpi/ic_launcher_fg.png"
+    },
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/drawable_bg_w0.xml.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/drawable/bg_w0.xml"
+    },
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/layout_activity_main.xml.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/drawable_bg_w5.xml.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/drawable/bg_w5.xml"
+    },
+    {
+        "merged": "com.cindy.ngaykyniem.app-debug-4:/layout_widget_small.xml.flat",
+        "source": "com.cindy.ngaykyniem.app-main-6:/layout/widget_small.xml"
+    }
+]

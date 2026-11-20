@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="demo_names"><item>結婚紀念日</item><item>在一起的日子</item><item>小安生日</item><item>阿公忌日</item><item>花蓮旅行</item></string-array>
+    <integer-array name="demo_repeat"><item>1</item><item>0</item><item>1</item><item>2</item><item>0</item></integer-array>
+    <string-array name="mascot_names"><item>微笑</item><item>揮手</item><item>眨眼</item><item>抱葉子</item><item>愛心眼</item></string-array>
+    <string-array name="theme_names"><item>李子夜</item><item>鈷藍</item><item>牛奶霜</item><item>萊姆</item><item>霧黑</item><item>苔綠</item></string-array>
+    <plurals name="unit_days">
+        <item quantity="other">天</item>
+    </plurals>
+    <plurals name="unit_left">
+        <item quantity="other">天後</item>
+    </plurals>
+    <string name="back">返回</string>
+    <string name="config_add">+  新的日子</string>
+    <string name="config_sub">點選卡片即可選擇</string>
+    <string name="config_title">這個小工具要數哪一天？</string>
+    <string name="date_pattern">yyyy/MM/dd</string>
+    <string name="default_name">我們的日子</string>
+    <string name="delete">刪除這個日子</string>
+    <string name="delete_confirm">再點一次就刪除</string>
+    <string name="empty">還沒有任何日子 🍑\n點「+ 新增」開始吧</string>
+    <string name="err_name">先幫這個日子取個名字吧</string>
+    <string name="fab_add">+  新增</string>
+    <string name="first_day">開始日算作第 1 天</string>
+    <string name="hint_name">例如：結婚紀念日、寶寶生日…</string>
+    <string name="label_date">日期（國曆）</string>
+    <string name="label_mascot">桃子表情</string>
+    <string name="label_name">名稱</string>
+    <string name="label_preview">小工具預覽</string>
+    <string name="label_repeat">每年重複</string>
+    <string name="label_theme">小工具顏色</string>
+    <string name="lunar_fmt">農曆%2$d月%1$d日</string>
+    <string name="lunar_hint">農曆：%1$s，%2$d年</string>
+    <string name="lunar_leap">（閏月）</string>
+    <string name="pin">儲存並釘選到主畫面 📌</string>
+    <string name="pin_unsupported">無法自動釘選。長按主畫面 → 小工具 → Peachy。</string>
+    <string name="repeat_help">農曆適用於農曆生日、忌日等，每年會自動換算成國曆日期。</string>
+    <string name="repeat_lunar">農曆</string>
+    <string name="repeat_none">不重複</string>
+    <string name="repeat_solar">國曆</string>
+    <string name="save">儲存</string>
+    <string name="since">自 %s 起</string>
+    <string name="tagline">數著我們的日子 ♡</string>
+    <string name="tip">📌 新增小工具：長按主畫面空白處 → 小工具 → 拖曳「Peachy」。或打開某個日子，點「儲存並釘選到主畫面」。</string>
+    <string name="title_add">新增日子</string>
+    <string name="title_edit">編輯日子</string>
+    <string name="toast_deleted">已刪除</string>
+    <string name="toast_saved">已儲存 🍑</string>
+    <string name="today_pattern">yyyy/MM/dd（EEE）</string>
+    <string name="widget_desc">在主畫面計算紀念日</string>
+    <string name="widget_empty">點一下新增日子</string>
+    <string name="widget_label">Peachy · 紀念日計數</string>
+</resources>

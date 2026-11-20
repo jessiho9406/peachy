@@ -1,0 +1,7 @@
+com.cindy.ngaykyniem.app-pngs-0 /home/runner/work/peachy/peachy/app/build/generated/res/pngs/debug
+com.cindy.ngaykyniem.app-resValues-1 /home/runner/work/peachy/peachy/app/build/generated/res/resValues/debug
+com.cindy.ngaykyniem.app-packageDebugResources-2 /home/runner/work/peachy/peachy/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.cindy.ngaykyniem.app-packageDebugResources-3 /home/runner/work/peachy/peachy/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.cindy.ngaykyniem.app-debug-4 /home/runner/work/peachy/peachy/app/build/intermediates/merged_res/debug/mergeDebugResources
+com.cindy.ngaykyniem.app-debug-5 /home/runner/work/peachy/peachy/app/src/debug/res
+com.cindy.ngaykyniem.app-main-6 /home/runner/work/peachy/peachy/app/src/main/res

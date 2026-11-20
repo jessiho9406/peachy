@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="demo_names"><item>結婚記念日</item><item>付き合った日</item><item>ひなの誕生日</item><item>初出勤の日</item><item>沖縄旅行</item></string-array>
+    <integer-array name="demo_repeat"><item>1</item><item>0</item><item>1</item><item>0</item><item>0</item></integer-array>
+    <string-array name="mascot_names"><item>にっこり</item><item>バイバイ</item><item>ウインク</item><item>葉っぱハグ</item><item>ハートの目</item></string-array>
+    <string-array name="theme_names"><item>プラムナイト</item><item>コバルト</item><item>ミルククリーム</item><item>ライム</item><item>マットブラック</item><item>モス</item></string-array>
+    <plurals name="unit_days">
+        <item quantity="other">日</item>
+    </plurals>
+    <plurals name="unit_left">
+        <item quantity="other">日後</item>
+    </plurals>
+    <string name="back">戻る</string>
+    <string name="config_add">+  新しい記念日</string>
+    <string name="config_sub">カードをタップして選択</string>
+    <string name="config_title">このウィジェットで数える日は？</string>
+    <string name="date_pattern">yyyy/MM/dd</string>
+    <string name="default_name">記念日</string>
+    <string name="delete">この記念日を削除</string>
+    <string name="delete_confirm">もう一度タップで削除</string>
+    <string name="empty">まだ記念日がありません 🍑\n「+ 追加」をタップして始めよう</string>
+    <string name="err_name">先に名前をつけてね</string>
+    <string name="fab_add">+  追加</string>
+    <string name="first_day">開始日を1日目として数える</string>
+    <string name="hint_name">例：結婚記念日、子どもの誕生日…</string>
+    <string name="label_date">日付（新暦）</string>
+    <string name="label_mascot">ももの表情</string>
+    <string name="label_name">名前</string>
+    <string name="label_preview">ウィジェットのプレビュー</string>
+    <string name="label_repeat">毎年くり返す</string>
+    <string name="label_theme">ウィジェットの色</string>
+    <string name="lunar_fmt">旧暦 %2$d/%1$d</string>
+    <string name="lunar_hint">旧暦：%1$s（%2$d年）</string>
+    <string name="lunar_leap">（閏月）</string>
+    <string name="pin">保存してホームに追加 📌</string>
+    <string name="pin_unsupported">自動で追加できません。ホーム画面を長押し → ウィジェット → Peachy。</string>
+    <string name="repeat_help">旧暦は旧暦の誕生日や法事などに。毎年の新暦の日付に自動で変換します。</string>
+    <string name="repeat_lunar">旧暦</string>
+    <string name="repeat_none">なし</string>
+    <string name="repeat_solar">新暦</string>
+    <string name="save">保存</string>
+    <string name="since">%sから</string>
+    <string name="tagline">ふたりの日をカウント ♡</string>
+    <string name="tip">📌 ウィジェット追加：ホーム画面の空いている所を長押し → ウィジェット → 「Peachy」をドラッグ。または記念日を開いて「保存してホームに追加」をタップ。</string>
+    <string name="title_add">記念日を追加</string>
+    <string name="title_edit">記念日を編集</string>
+    <string name="toast_deleted">削除しました</string>
+    <string name="toast_saved">保存しました 🍑</string>
+    <string name="today_pattern">yyyy/MM/dd (EEE)</string>
+    <string name="widget_desc">ホーム画面で記念日をカウント</string>
+    <string name="widget_empty">タップして追加</string>
+    <string name="widget_label">Peachy · 記念日カウント</string>
+</resources>
